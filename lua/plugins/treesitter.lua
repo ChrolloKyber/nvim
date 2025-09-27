@@ -3,13 +3,7 @@ return {
   build = ":TSUpdate",
   config = function()
     require("nvim-treesitter.configs").setup({
-      ensure_installed = {
-        "bash",
-        "dockerfile",
-        "go",
-        "lua",
-        "python",
-      },
+      ensure_installed = {},
       ignore_install = {},
       modules = {},
       sync_install = false,

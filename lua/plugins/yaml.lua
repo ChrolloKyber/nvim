@@ -48,7 +48,7 @@ return {
         },
       },
     })
-    local lspconfig = require("lspconfig")
-    lspconfig.yamlls.setup(cfg)
+    -- local lspconfig = require("lspconfig")
+    -- lspconfig.yamlls.setup(cfg)
   end,
 }
