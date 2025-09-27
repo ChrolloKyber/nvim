@@ -43,3 +43,6 @@ opt.guicursor = {
   "a:blinkwait700-blinkoff400-blinkon250-Cursor/lCursor",
   "sm:block-blinkwait175-blinkoff150-blinkon175",
 }
+
+vim.api.nvim_set_hl(0, "NormalFloat", { link = "Normal" })
+vim.api.nvim_set_hl(0, "FloatBorder", { link = "Normal" })
