@@ -40,15 +40,15 @@ return {
         },
         pickers = {
           find_files = {
-            theme = "ivy"
+            theme = "ivy",
           },
           live_grep = {
-            theme = "ivy"
+            theme = "ivy",
           },
           buffers = {
-            theme = "ivy"
+            theme = "ivy",
           },
-        }
+        },
       })
       require("telescope").load_extension("fzy_native")
 
@@ -57,10 +57,9 @@ return {
       map("n", "<leader>fh", builtin.help_tags, { desc = "Telescope find tags" })
       map("n", "<leader>fs", builtin.live_grep, { desc = "Telescope live grep" })
       map("n", "<leader><leader>", builtin.buffers, { desc = "Telescope buffers" })
-      map('n', "<leader>en", function()
-          builtin.find_files { cwd = vim.fn.stdpath('config') }
-        end,
-        { desc = "Edit Neovim" })
+      map("n", "<leader>en", function()
+        builtin.find_files({ cwd = vim.fn.stdpath("config") })
+      end, { desc = "Edit Neovim" })
     end,
   },
 }

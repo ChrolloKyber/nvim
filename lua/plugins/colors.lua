@@ -23,6 +23,6 @@ return {
     end,
   },
   {
-    "folke/tokyonight.nvim"
-  }
+    "folke/tokyonight.nvim",
+  },
 }

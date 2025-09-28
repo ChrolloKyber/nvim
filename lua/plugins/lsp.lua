@@ -36,12 +36,12 @@ return {
         underline = true,
         signs = vim.g.have_nerd_font and {
           text = {
-            [vim.diagnostic.severity.ERROR] = '󰅚 ',
-            [vim.diagnostic.severity.WARN] = '󰀪 ',
-            [vim.diagnostic.severity.INFO] = '󰋽 ',
-            [vim.diagnostic.severity.HINT] = '󰌶 ',
+            [vim.diagnostic.severity.ERROR] = "󰅚 ",
+            [vim.diagnostic.severity.WARN] = "󰀪 ",
+            [vim.diagnostic.severity.INFO] = "󰋽 ",
+            [vim.diagnostic.severity.HINT] = "󰌶 ",
           },
-        }
+        },
       })
 
       vim.api.nvim_create_autocmd("LspAttach", {
@@ -53,8 +53,8 @@ return {
             vim.lsp.inlay_hint.enable(true, { bufnr = bufnr })
           end
           if
-              not client:supports_method("textDocument/willSaveWaitUntil")
-              and client:supports_method("textDocument/formatting")
+            not client:supports_method("textDocument/willSaveWaitUntil")
+            and client:supports_method("textDocument/formatting")
           then
             vim.api.nvim_create_autocmd("BufWritePre", {
               group = vim.api.nvim_create_augroup("lsp", { clear = false }),
@@ -113,7 +113,7 @@ return {
         auto_show = true,
         draw = {
           columns = {
-            { "label",     "label_description", gap = 1 },
+            { "label", "label_description", gap = 1 },
             { "kind_icon", "kind" },
           },
         },
@@ -134,5 +134,18 @@ return {
       automatic_enable = true,
     },
   },
-}
 
+  {
+    "stevearc/conform.nvim",
+    event = { "BufWritePre" },
+    cmd = { "ConformInfo" },
+
+    opts = {
+      notify_on_error = false,
+      formatters_by_ft = {
+        lua = { "stylua" },
+        json = { "prettier" },
+      },
+    },
+  },
+}

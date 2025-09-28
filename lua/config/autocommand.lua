@@ -78,9 +78,8 @@ autocmd("BufReadPost", {
   end,
 })
 
-
-autocmd('TermOpen', {
-  group = vim.api.nvim_create_augroup('term-open', { clear = true }),
+autocmd("TermOpen", {
+  group = vim.api.nvim_create_augroup("term-open", { clear = true }),
   callback = function()
     vim.opt_local.number = false
     vim.opt_local.rnu = false

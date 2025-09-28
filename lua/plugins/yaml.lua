@@ -17,8 +17,7 @@ return {
       schemas = {
         {
           name = "Kubernetes 1.33.1",
-          uri =
-          "https://raw.githubusercontent.com/yannh/kubernetes-json-schema/master/v1.33.1-standalone-strict/all.json",
+          uri = "https://raw.githubusercontent.com/yannh/kubernetes-json-schema/master/v1.33.1-standalone-strict/all.json",
         },
       },
       lspconfig = {
