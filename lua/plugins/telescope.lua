@@ -44,7 +44,10 @@ return {
           },
           live_grep = {
             theme = "ivy"
-          }
+          },
+          buffers = {
+            theme = "ivy"
+          },
         }
       })
       require("telescope").load_extension("fzy_native")

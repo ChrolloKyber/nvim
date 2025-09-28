@@ -17,7 +17,8 @@ return {
       schemas = {
         {
           name = "Kubernetes 1.33.1",
-          uri = "https://raw.githubusercontent.com/yannh/kubernetes-json-schema/master/v1.33.1-standalone-strict/all.json",
+          uri =
+          "https://raw.githubusercontent.com/yannh/kubernetes-json-schema/master/v1.33.1-standalone-strict/all.json",
         },
       },
       lspconfig = {
@@ -48,7 +49,6 @@ return {
         },
       },
     })
-    -- local lspconfig = require("lspconfig")
-    -- lspconfig.yamlls.setup(cfg)
+    vim.lsp.config("yamlls", cfg)
   end,
 }
