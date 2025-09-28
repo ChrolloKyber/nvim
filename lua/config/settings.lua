@@ -3,6 +3,9 @@ local opt = vim.opt
 vim.schedule(function()
   opt.clipboard = "unnamedplus"
 end)
+vim.g.loaded_node_provider = 0
+vim.g.loaded_perl_provider = 0
+vim.g.loaded_python_provider = 0
 opt.title = true
 opt.number = true
 opt.relativenumber = true
