@@ -16,11 +16,16 @@ return {
       "SmiteshP/nvim-navic",
     },
     config = function()
+      vim.lsp.log.set_level(vim.log.levels.OFF)
       local capabilities = require("blink.cmp").get_lsp_capabilities()
 
       vim.lsp.config("*", {
         capabilities = capabilities,
       })
+
+      -- for _, lsp in ipairs(vim.api.nvim_get_runtime_file("lsp/*.lua", true)) do
+      --   vim.lsp.enable(vim.fs.basename(lsp):gsub("%.lua", ""))
+      -- end
       vim.lsp.enable("lua_ls")
 
       vim.diagnostic.config({
@@ -28,7 +33,7 @@ return {
         virtual_lines = true,
         virtual_text = true,
         float = { border = "rounded", source = "if_many" },
-        underline = { severity = vim.diagnostic.severity.ERROR },
+        underline = true,
         signs = vim.g.have_nerd_font and {
           text = {
             [vim.diagnostic.severity.ERROR] = '󰅚 ',
@@ -130,3 +135,4 @@ return {
     },
   },
 }
+
