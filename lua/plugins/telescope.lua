@@ -38,11 +38,28 @@ return {
             },
           },
         },
+        pickers = {
+          find_files = {
+            theme = "ivy",
+          },
+          live_grep = {
+            theme = "ivy",
+          },
+          buffers = {
+            theme = "ivy",
+          },
+        },
       })
       require("telescope").load_extension("fzy_native")
-      vim.keymap.set("n", "<leader>ff", builtin.find_files, { desc = "Telescope find files" })
-      vim.keymap.set("n", "<leader>fs", builtin.live_grep, { desc = "Telescope live grep" })
-      vim.keymap.set("n", "<leader><leader>", builtin.buffers, { desc = "Telescope buffers" })
+
+      local map = vim.keymap.set
+      map("n", "<leader>ff", builtin.find_files, { desc = "Telescope find files" })
+      map("n", "<leader>fh", builtin.help_tags, { desc = "Telescope find tags" })
+      map("n", "<leader>fs", builtin.live_grep, { desc = "Telescope live grep" })
+      map("n", "<leader><leader>", builtin.buffers, { desc = "Telescope buffers" })
+      map("n", "<leader>en", function()
+        builtin.find_files({ cwd = vim.fn.stdpath("config") })
+      end, { desc = "Edit Neovim" })
     end,
   },
 }

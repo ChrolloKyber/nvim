@@ -8,15 +8,6 @@ autocmd({ "BufRead", "BufNewFile" }, {
 })
 
 autocmd({ "BufRead", "BufNewFile" }, {
-  pattern = "*.go",
-  callback = function()
-    vim.o.softtabstop = 4
-    vim.o.shiftwidth = 4
-    vim.o.expandtab = false
-  end,
-})
-
-autocmd({ "BufRead", "BufNewFile" }, {
   pattern = "*.tpl",
   callback = function()
     vim.bo.filetype = "json"
@@ -42,13 +33,6 @@ autocmd({ "BufRead", "BufNewFile" }, {
   pattern = ".gitconfig*",
   callback = function()
     vim.bo.filetype = "gitconfig"
-  end,
-})
-
-autocmd({ "BufRead", "BufNewFile" }, {
-  pattern = "*.md",
-  callback = function()
-    vim.bo.shiftwidth = 2
   end,
 })
 
@@ -91,5 +75,13 @@ autocmd("BufReadPost", {
     if mark[1] > 0 and mark[1] <= line_count then
       vim.cmd('normal! g`"zz')
     end
+  end,
+})
+
+autocmd("TermOpen", {
+  group = vim.api.nvim_create_augroup("term-open", { clear = true }),
+  callback = function()
+    vim.opt_local.number = false
+    vim.opt_local.rnu = false
   end,
 })

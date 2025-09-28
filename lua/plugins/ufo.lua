@@ -13,10 +13,11 @@ return {
       }
       local language_servers = vim.lsp.get_clients()
       for _, ls in ipairs(language_servers) do
-        require("lspconfig")[ls].setup({
+        vim.lsp.config[ls]({
           capabilities = capabilities,
         })
       end
+      local map = vim.keymap.set
       require("ufo").setup({
         preview = {
           win_config = {
@@ -25,9 +26,9 @@ return {
             winblend = 0,
           },
         },
-        vim.keymap.set("n", "zR", require("ufo").openAllFolds, { desc = "UFO: Open all folds" }),
-        vim.keymap.set("n", "zM", require("ufo").closeAllFolds, { desc = "UFO: Close all folds" }),
-        vim.keymap.set("n", "zK", require("ufo").peekFoldedLinesUnderCursor, { desc = "UFO: preview fold" }),
+        map("n", "zR", require("ufo").openAllFolds, { desc = "UFO: Open all folds" }),
+        map("n", "zM", require("ufo").closeAllFolds, { desc = "UFO: Close all folds" }),
+        map("n", "zK", require("ufo").peekFoldedLinesUnderCursor, { desc = "UFO: preview fold" }),
       })
     end,
   },

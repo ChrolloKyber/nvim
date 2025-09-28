@@ -8,6 +8,7 @@ return {
 
   {
     "windwp/nvim-autopairs",
+    enable = false,
     event = "InsertEnter",
     config = true,
   },
@@ -96,21 +97,35 @@ return {
   },
 
   {
-    "m4xshen/hardtime.nvim",
-    lazy = false,
-    dependencies = { "MunifTanjim/nui.nvim" },
-    opts = {
-      disable_mouse = false,
-    },
-  },
-
-  {
     "rcarriga/nvim-notify",
     config = function()
       vim.notify = require("notify")
       require("notify").setup({
         background_colour = "#000000",
         merge_duplicates = true,
+      })
+    end,
+  },
+
+  {
+    "numToStr/Comment.nvim",
+    config = function()
+      require("Comment").setup()
+    end,
+  },
+
+  {
+    "ya2s/nvim-cursorline",
+    config = function()
+      require("nvim-cursorline").setup({
+        cursorline = {
+          enable = false,
+        },
+        cursorword = {
+          enable = true,
+          min_length = 3,
+          hl = { underline = true },
+        },
       })
     end,
   },

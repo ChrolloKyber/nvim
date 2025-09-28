@@ -16,7 +16,7 @@ vim.opt.rtp:prepend(lazypath)
 
 require("lazy").setup({
   spec = {
-    { import = "chrollo.plugins" },
+    { import = "plugins" },
   },
   checker = { enabled = true, notify = false },
 })

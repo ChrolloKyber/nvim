@@ -27,11 +27,5 @@ return {
     vim.keymap.set("n", "<C-4>", function()
       harpoon:list():select(4)
     end, { silent = true, desc = "Harpoon Goto File 4" })
-    vim.keymap.set("n", "<C-n>", function()
-      harpoon:list():prev()
-    end, { silent = true, desc = "Harpoon Previous File" })
-    vim.keymap.set("n", "<C-e>", function()
-      harpoon:list():next()
-    end, { silent = true, desc = "Harpoon Next File" })
   end,
 }

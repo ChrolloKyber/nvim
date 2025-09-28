@@ -22,4 +22,7 @@ return {
       vim.cmd.colorscheme("gruvbox")
     end,
   },
+  {
+    "folke/tokyonight.nvim",
+  },
 }
