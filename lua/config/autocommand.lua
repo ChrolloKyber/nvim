@@ -23,6 +23,12 @@ autocmd({ "BufRead", "BufNewFile" }, {
 })
 
 autocmd({ "BufRead", "BufNewFile" }, {
+  pattern = "Caddyfile",
+  callback = function()
+    vim.bo.filetype = "caddy"
+  end
+})
+autocmd({ "BufRead", "BufNewFile" }, {
   pattern = { "docker-compose.yaml", "docker-compose.yml", "compose.yaml", "compose.yml" },
   callback = function()
     vim.bo.filetype = "yaml.docker-compose"
