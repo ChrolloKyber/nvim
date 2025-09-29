@@ -16,10 +16,14 @@ return {
       "SmiteshP/nvim-navic",
     },
     config = function()
-      vim.lsp.log.set_level(vim.log.levels.OFF)
       local capabilities = require("blink.cmp").get_lsp_capabilities()
 
       vim.lsp.config("*", {
+        capabilities = capabilities,
+      })
+
+      vim.lsp.config('terraformls', {
+        cmd = { "terraform-ls", "serve", "-log-file", "/dev/null" },
         capabilities = capabilities,
       })
 
@@ -27,11 +31,11 @@ return {
       --   vim.lsp.enable(vim.fs.basename(lsp):gsub("%.lua", ""))
       -- end
       vim.lsp.enable("lua_ls")
+      vim.lsp.enable("terraformls")
 
       vim.diagnostic.config({
         severity_sort = true,
         virtual_lines = true,
-        virtual_text = true,
         float = { border = "rounded", source = "if_many" },
         underline = true,
         signs = vim.g.have_nerd_font and {
@@ -53,8 +57,8 @@ return {
             vim.lsp.inlay_hint.enable(true, { bufnr = bufnr })
           end
           if
-            not client:supports_method("textDocument/willSaveWaitUntil")
-            and client:supports_method("textDocument/formatting")
+              not client:supports_method("textDocument/willSaveWaitUntil")
+              and client:supports_method("textDocument/formatting")
           then
             vim.api.nvim_create_autocmd("BufWritePre", {
               group = vim.api.nvim_create_augroup("lsp", { clear = false }),
@@ -64,15 +68,15 @@ return {
               end,
             })
           end
-          require("nvim-navic").setup({
-            lsp = {
-              auto_attach = true,
-              preference = nil,
-            },
-          })
-          vim.o.winbar = "%{%v:lua.require'nvim-navic'.get_location()%}"
         end,
       })
+      require("nvim-navic").setup({
+        lsp = {
+          auto_attach = true,
+          preference = nil,
+        },
+      })
+      vim.o.winbar = "%{%v:lua.require'nvim-navic'.get_location()%}"
     end,
   },
   {
@@ -102,24 +106,43 @@ return {
           },
         },
       },
-      completion = { documentation = { auto_show = false } },
+      completion = {
+        menu = {
+          auto_show = true,
+          border = "rounded",
+          winhighlight = "Normal:BlinkCmpDoc,FloatBorder:BlinkCmpDocBorder,CursorLine:BlinkCmpDocCursorLine,Search:None",
+          draw = {
+            columns = {
+              { "label",     "label_description", gap = 1 },
+              { "kind_icon", gap = 1,             "kind" },
+            },
+          },
+        },
+        documentation = {
+          auto_show = false,
+          window = {
+            border = "rounded",
+            winhighlight =
+            "Normal:BlinkCmpDoc,FloatBorder:BlinkCmpDocBorder,CursorLine:BlinkCmpDocCursorLine,Search:None",
+          },
+        },
+        ghost_text = { enabled = true },
+      },
       fuzzy = { implementation = "prefer_rust_with_warning" },
       cmdline = {
         keymap = { preset = "inherit" },
         completion = { menu = { auto_show = true } },
       },
       accept = { auto_brackets = { enabled = true } },
-      menu = {
+      signature = {
+        enabled = true,
         auto_show = true,
-        draw = {
-          columns = {
-            { "label", "label_description", gap = 1 },
-            { "kind_icon", "kind" },
-          },
-        },
+        window = {
+          border = "rounded",
+          winhighlight =
+          "Normal:BlinkCmpDoc,FloatBorder:BlinkCmpDocBorder,CursorLine:BlinkCmpDocCursorLine,Search:None",
+        }
       },
-      ghost_text = { enabled = true },
-      signature = { enabled = true },
     },
     opts_extend = { "sources.default" },
   },
