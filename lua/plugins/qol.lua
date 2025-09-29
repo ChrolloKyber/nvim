@@ -46,30 +46,47 @@ return {
         end
         return schema.result[1].name
       end
+
       local custom_gruvbox = require("lualine.themes.gruvbox-material")
       custom_gruvbox.normal.a.bg = "#32302f"
       custom_gruvbox.normal.a.fg = "#ddc7a1"
       custom_gruvbox.normal.c.bg = "#3c3836"
       custom_gruvbox.insert.a.bg = "#7daea3"
-      require("lualine").setup({
-        options = {
-          theme = custom_gruvbox,
-        },
-        sections = {
-          lualine_b = { "branch", "diff" },
-          lualine_c = {},
-          lualine_x = { "filename" },
-          lualine_y = { get_schema },
-          lualine_z = { { "filetype", colored = false } },
-        },
-        inactive_sections = {
-          lualine_a = {},
-          lualine_b = {},
-          lualine_c = {},
-          lualine_x = { "filename" },
-          lualine_y = {},
-          lualine_z = {},
-        },
+
+      local function setup_lualine()
+        local theme = "auto"
+        if vim.g.colors_name == "gruvbox" then
+          theme = custom_gruvbox
+        end
+        require("lualine").setup({
+          options = {
+            theme = theme,
+          },
+          sections = {
+            lualine_b = { "branch", "diff" },
+            lualine_c = {},
+            lualine_x = { "filename" },
+            lualine_y = { get_schema },
+            lualine_z = { "filetype" },
+          },
+          inactive_sections = {
+            lualine_a = {},
+            lualine_b = {},
+            lualine_c = {},
+            lualine_x = { "filename" },
+            lualine_y = {},
+            lualine_z = {},
+          },
+        })
+      end
+
+      setup_lualine()
+
+      vim.api.nvim_create_autocmd("ColorScheme", {
+        pattern = "*",
+        callback = function()
+          setup_lualine()
+        end,
       })
     end,
   },

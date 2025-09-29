@@ -5,7 +5,6 @@ return {
     config = function()
       require("gruvbox").setup({
         dim_inactive = false,
-        transparent_mode = false,
         contrast = "hard",
         overrides = {
           ["@markup.heading.1.markdown"] = { fg = "#fb4934", bg = "", bold = true },
