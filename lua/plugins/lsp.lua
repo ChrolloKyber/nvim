@@ -16,10 +16,14 @@ return {
       "SmiteshP/nvim-navic",
     },
     config = function()
-      vim.lsp.log.set_level(vim.log.levels.OFF)
       local capabilities = require("blink.cmp").get_lsp_capabilities()
 
       vim.lsp.config("*", {
+        capabilities = capabilities,
+      })
+
+      vim.lsp.config('terraformls', {
+        cmd = { "terraform-ls", "serve", "-log-file", "/dev/null" },
         capabilities = capabilities,
       })
 
@@ -27,6 +31,7 @@ return {
       --   vim.lsp.enable(vim.fs.basename(lsp):gsub("%.lua", ""))
       -- end
       vim.lsp.enable("lua_ls")
+      vim.lsp.enable("terraformls")
 
       vim.diagnostic.config({
         severity_sort = true,
