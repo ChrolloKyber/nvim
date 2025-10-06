@@ -16,8 +16,7 @@ return {
         view_options = {
           show_hidden = true,
           is_always_hidden = function(name, _)
-            local git = name:match(".git")
-            return git ~= nil or name == ".."
+            return name == ".git" or name == ".."
           end,
           sort = {
             { "type", "asc" },
