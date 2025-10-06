@@ -27,9 +27,6 @@ return {
         capabilities = capabilities,
       })
 
-      -- for _, lsp in ipairs(vim.api.nvim_get_runtime_file("lsp/*.lua", true)) do
-      --   vim.lsp.enable(vim.fs.basename(lsp):gsub("%.lua", ""))
-      -- end
       vim.lsp.enable("lua_ls")
       vim.lsp.enable("terraformls")
 
@@ -126,7 +123,7 @@ return {
             "Normal:BlinkCmpDoc,FloatBorder:BlinkCmpDocBorder,CursorLine:BlinkCmpDocCursorLine,Search:None",
           },
         },
-        ghost_text = { enabled = true },
+        ghost_text = { enabled = false },
       },
       fuzzy = { implementation = "prefer_rust_with_warning" },
       cmdline = {
