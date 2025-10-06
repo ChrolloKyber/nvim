@@ -37,16 +37,8 @@ return {
 
   {
     "nvim-lualine/lualine.nvim",
-    dependencies = { "nvim-tree/nvim-web-devicons", "ChrolloKyber/yaml-companion.nvim" },
+    dependencies = { "nvim-tree/nvim-web-devicons" },
     config = function()
-      local function get_schema()
-        local schema = require("yaml-companion").get_buf_schema(0)
-        if schema.result[1].name == "none" then
-          return ""
-        end
-        return schema.result[1].name
-      end
-
       local custom_gruvbox = require("lualine.themes.gruvbox-material")
       custom_gruvbox.normal.a.bg = "#32302f"
       custom_gruvbox.normal.a.fg = "#ddc7a1"
@@ -66,7 +58,7 @@ return {
             lualine_b = { "branch", "diff" },
             lualine_c = {},
             lualine_x = { "filename" },
-            lualine_y = { get_schema },
+            lualine_y = {},
             lualine_z = { "filetype" },
           },
           inactive_sections = {
