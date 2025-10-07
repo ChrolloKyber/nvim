@@ -59,7 +59,7 @@ return {
             lualine_c = {},
             lualine_x = { "filename" },
             lualine_y = {},
-            lualine_z = { "filetype" },
+            lualine_z = { { "filetype", colored = false } },
           },
           inactive_sections = {
             lualine_a = {},

@@ -1,7 +1,6 @@
 return {
   {
     "ellisonleao/gruvbox.nvim",
-    priority = 1000,
     config = function()
       require("gruvbox").setup({
         dim_inactive = false,
@@ -18,14 +17,24 @@ return {
           FloatBorder = { link = "Normal" },
         },
       })
-      vim.cmd.colorscheme("gruvbox")
+      -- vim.cmd.colorscheme("gruvbox")
     end,
   },
   {
-    "folke/tokyonight.nvim",
+    "Tsuzat/NeoSolarized.nvim",
+    config = function()
+      require("NeoSolarized").setup({
+        transparent = false
+      })
+    end
   },
   {
     "rose-pine/neovim",
-    name = "rose-pine"
+    name = "rose-pine",
+    priority = 1000,
+    lazy = false,
+    config = function()
+      vim.cmd.colorscheme('rose-pine')
+    end
   }
 }
