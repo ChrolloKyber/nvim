@@ -21,14 +21,6 @@ return {
     end,
   },
   {
-    "Tsuzat/NeoSolarized.nvim",
-    config = function()
-      require("NeoSolarized").setup({
-        transparent = false
-      })
-    end
-  },
-  {
     "rose-pine/neovim",
     name = "rose-pine",
     priority = 1000,

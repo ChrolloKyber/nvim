@@ -133,7 +133,6 @@ return {
       accept = { auto_brackets = { enabled = true } },
       signature = {
         enabled = true,
-        auto_show = true,
         window = {
           border = "rounded",
           winhighlight =
