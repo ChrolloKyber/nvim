@@ -106,9 +106,6 @@ return {
 			completion = {
 				menu = {
 					auto_show = true,
-					border = "rounded",
-					winhighlight =
-					"Normal:BlinkCmpDoc,FloatBorder:BlinkCmpDocBorder,CursorLine:BlinkCmpDocCursorLine,Search:None",
 					draw = {
 						columns = {
 							{ "label",     "label_description", gap = 1 },
@@ -119,13 +116,7 @@ return {
 				documentation = {
 					auto_show = true,
 					auto_show_delay_ms = 500,
-					window = {
-						border = "rounded",
-						winhighlight =
-						"Normal:BlinkCmpDoc,FloatBorder:BlinkCmpDocBorder,CursorLine:BlinkCmpDocCursorLine,Search:None",
-					},
 				},
-				ghost_text = { enabled = false },
 				accept = { auto_brackets = { enabled = true } },
 			},
 			fuzzy = { implementation = "prefer_rust_with_warning" },
@@ -135,10 +126,9 @@ return {
 			},
 			signature = {
 				enabled = true,
-				window = {
-					border = "rounded",
-					winhighlight =
-					"Normal:BlinkCmpDoc,FloatBorder:BlinkCmpDocBorder,CursorLine:BlinkCmpDocCursorLine,Search:None",
+				trigger = {
+					enabled = true,
+					show_on_keyword = true,
 				}
 			},
 		},

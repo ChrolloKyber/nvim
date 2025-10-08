@@ -38,6 +38,7 @@ opt.list = true
 opt.listchars = { tab = "» ", trail = "·", nbsp = "␣", extends = "›", precedes = "‹", eol = "↲" }
 opt.fillchars = [[eob: ,fold: ,foldopen:,foldsep: ,foldclose:]]
 opt.showbreak = "↪"
+opt.winborder = "rounded"
 opt.guicursor = {
 	"n-v-c:block",
 	"i-ci-ve:ver25",
