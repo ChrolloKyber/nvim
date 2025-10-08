@@ -1,7 +1,7 @@
 vim.g.auto_reload = false
 local opt = vim.opt
 vim.schedule(function()
-  opt.clipboard = "unnamedplus"
+	opt.clipboard = "unnamedplus"
 end)
 vim.g.loaded_node_provider = 0
 vim.g.loaded_perl_provider = 0
@@ -39,12 +39,12 @@ opt.listchars = { tab = "» ", trail = "·", nbsp = "␣", extends = "›", prec
 opt.fillchars = [[eob: ,fold: ,foldopen:,foldsep: ,foldclose:]]
 opt.showbreak = "↪"
 opt.guicursor = {
-  "n-v-c:block",
-  "i-ci-ve:ver25",
-  "r-cr:hor20",
-  "o:hor50",
-  "a:blinkwait700-blinkoff400-blinkon250-Cursor/lCursor",
-  "sm:block-blinkwait175-blinkoff150-blinkon175",
+	"n-v-c:block",
+	"i-ci-ve:ver25",
+	"r-cr:hor20",
+	"o:hor50",
+	"a:blinkwait700-blinkoff400-blinkon250-Cursor/lCursor",
+	"sm:block-blinkwait175-blinkoff150-blinkon175",
 }
 
 vim.api.nvim_set_hl(0, "NormalFloat", { link = "Normal" })
