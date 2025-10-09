@@ -13,7 +13,6 @@ return {
 				},
 			},
 			{ "j-hui/fidget.nvim", opts = {} },
-			"SmiteshP/nvim-navic",
 		},
 		config = function()
 			local capabilities = require("blink.cmp").get_lsp_capabilities()
@@ -67,13 +66,6 @@ return {
 					end
 				end,
 			})
-			require("nvim-navic").setup({
-				lsp = {
-					auto_attach = true,
-					preference = nil,
-				},
-			})
-			vim.o.winbar = "%{%v:lua.require'nvim-navic'.get_location()%}"
 		end,
 	},
 	{
@@ -152,10 +144,10 @@ return {
 		cmd = { "ConformInfo" },
 
 		opts = {
-			notify_on_error = false,
+			notify_on_error = true,
 			formatters_by_ft = {
-				lua = { "stylua" },
 				json = { "prettier" },
+				markdown = { "prettier" },
 			},
 		},
 	},
