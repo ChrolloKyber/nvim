@@ -148,6 +148,7 @@ return {
 			formatters_by_ft = {
 				json = { "prettier" },
 				markdown = { "prettier" },
+				sh = { "shfmt" },
 			},
 		},
 	},

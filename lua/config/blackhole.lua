@@ -8,6 +8,8 @@ local mappings = {
 	{ mode = "n", lhs = "diw", rhs = '"_diw' },
 	{ mode = "n", lhs = "diW", rhs = '"_diW' },
 	{ mode = "n", lhs = 'di"', rhs = '"_di"' },
+	{ mode = "n", lhs = 'dgg', rhs = '"_dgg' },
+	{ mode = "n", lhs = 'dG',  rhs = '"_dG' },
 	{ mode = "n", lhs = "D",   rhs = '"_D' },
 	{ mode = "n", lhs = "cc",  rhs = '"_cc' },
 	{ mode = "n", lhs = "ce",  rhs = '"_ce' },
