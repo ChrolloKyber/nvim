@@ -64,6 +64,15 @@ return {
 							end,
 						})
 					end
+					vim.keymap.set('n', 'gD', function()
+							vim.lsp.buf.declaration()
+						end,
+						{ desc = "LSP: [G]o to [D]eclaration" }
+					)
+					vim.keymap.set('n', 'gd', function()
+							vim.lsp.buf.definition()
+						end,
+						{ desc = "LSP: [G]o to [d]efinition" })
 				end,
 			})
 		end,
