@@ -1,21 +1,31 @@
 return {
-	"b0o/SchemaStore.nvim",
-	dependencies = {
-		{
-			"ChrolloKyber/yaml-companion.nvim",
-			ft = { "yaml", "yaml.docker-compose" },
-		},
-		"nvim-lua/plenary.nvim",
-		"nvim-telescope/telescope.nvim",
+	{
+		"b0o/SchemaStore.nvim",
+		ft = { "yaml", "yaml.docker-compose" },
+		lazy = true,
 	},
-	ft = { "yaml", "yaml.docker-compose" },
-	config = function()
-		require("telescope").load_extension("yaml_schema")
-		vim.lsp.config("yamlls", {
-			settings = {
-				yaml = { SchemaStore = { enable = true } },
-				schemas = require("schemastore").yaml.schemas(),
-			},
-		})
-	end,
+
+	{
+		'cenk1cenk2/schema-companion.nvim',
+		ft = { "yaml", "yaml.docker-compose" },
+		dependencies = {
+			{ 'nvim-lua/plenary.nvim' },
+			{ 'nvim-telescope/telescope.nvim' },
+		},
+		config = function()
+			require('schema-companion').setup({
+				enable_telescope = true,
+				matchers = {
+					require('schema-companion.matchers.kubernetes').setup({ version = 'master' }),
+				},
+				schemas = {
+					{
+						name = 'Kubernetes v1.30',
+						uri =
+						'https://raw.githubusercontent.com/yannh/kubernetes-json-schema/master/v1.30.3-standalone-strict/all.json',
+					},
+				},
+			})
+		end,
+	},
 }
