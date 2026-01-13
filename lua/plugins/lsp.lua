@@ -149,16 +149,16 @@ return {
 
 	{
 		"stevearc/conform.nvim",
-		event = { "BufWritePre" },
 		cmd = { "ConformInfo" },
 
 		opts = {
-			notify_on_error = true,
+			notify_on_error = false,
 			formatters_by_ft = {
 				json = { "prettier" },
 				markdown = { "prettier" },
 				sh = { "shfmt" },
 			},
+			format_on_save = true
 		},
 	},
 }
