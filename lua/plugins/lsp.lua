@@ -3,15 +3,6 @@ return {
 		"neovim/nvim-lspconfig",
 		dependencies = {
 			"Saghen/blink.cmp",
-			{
-				"folke/lazydev.nvim",
-				ft = "lua",
-				opts = {
-					library = {
-						{ path = "${3rd}/luv/library", words = { "vim%.uv" } },
-					},
-				},
-			},
 			{ "j-hui/fidget.nvim", opts = {} },
 		},
 		config = function()
@@ -21,7 +12,7 @@ return {
 				capabilities = capabilities,
 			})
 
-			vim.lsp.config('terraformls', {
+			vim.lsp.config("terraformls", {
 				cmd = { "terraform-ls", "serve", "-log-file", "/dev/null" },
 				capabilities = capabilities,
 			})
@@ -64,15 +55,12 @@ return {
 							end,
 						})
 					end
-					vim.keymap.set('n', 'gD', function()
-							vim.lsp.buf.declaration()
-						end,
-						{ desc = "LSP: [G]o to [D]eclaration" }
-					)
-					vim.keymap.set('n', 'gd', function()
-							vim.lsp.buf.definition()
-						end,
-						{ desc = "LSP: [G]o to [d]efinition" })
+					vim.keymap.set("n", "gD", function()
+						vim.lsp.buf.declaration()
+					end, { desc = "LSP: [G]o to [D]eclaration" })
+					vim.keymap.set("n", "gd", function()
+						vim.lsp.buf.definition()
+					end, { desc = "LSP: [G]o to [d]efinition" })
 				end,
 			})
 		end,
@@ -130,7 +118,7 @@ return {
 				trigger = {
 					enabled = true,
 					show_on_keyword = true,
-				}
+				},
 			},
 		},
 		opts_extend = { "sources.default" },
@@ -158,7 +146,16 @@ return {
 				markdown = { "prettier" },
 				sh = { "shfmt" },
 			},
-			format_on_save = true
+			format_on_save = true,
+		},
+	},
+	{
+		"folke/lazydev.nvim",
+		ft = "lua",
+		opts = {
+			library = {
+				{ path = "${3rd}/luv/library", words = { "vim%.uv" } },
+			},
 		},
 	},
 }

@@ -26,7 +26,7 @@ autocmd({ "BufRead", "BufNewFile" }, {
 	pattern = "Caddyfile",
 	callback = function()
 		vim.bo.filetype = "caddy"
-	end
+	end,
 })
 autocmd({ "BufRead", "BufNewFile" }, {
 	pattern = { "docker-compose.yaml", "docker-compose.yml", "compose.yaml", "compose.yml" },
@@ -89,5 +89,12 @@ autocmd("TermOpen", {
 	callback = function()
 		vim.opt_local.number = false
 		vim.opt_local.rnu = false
+	end,
+})
+
+autocmd("FileType", {
+	pattern = "*",
+	callback = function()
+		pcall(vim.treesitter.start)
 	end,
 })
