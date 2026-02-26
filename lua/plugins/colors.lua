@@ -31,7 +31,7 @@ return {
 					transparency = true,
 				},
 			})
-			vim.cmd.colorscheme('rose-pine')
-		end
-	}
+			vim.cmd.colorscheme("rose-pine")
+		end,
+	},
 }

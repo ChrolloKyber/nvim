@@ -1,9 +1,17 @@
 return {
-  settings = {
-    Lua = {
-      hint = {
-        enable = true,
-      },
-    },
-  },
+	settings = {
+		Lua = {
+			hint = {
+				enable = true,
+			},
+			runtime = {
+				version = "LuaJIT",
+			},
+			diagnostics = {
+				globals = {
+					"vim",
+				},
+			},
+		},
+	},
 }
