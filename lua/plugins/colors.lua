@@ -1,6 +1,7 @@
 return {
 	{
 		"ellisonleao/gruvbox.nvim",
+		enabled = false,
 		config = function()
 			require("gruvbox").setup({
 				dim_inactive = false,
