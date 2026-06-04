@@ -7,13 +7,6 @@ return {
 	},
 
 	{
-		"windwp/nvim-autopairs",
-		enable = false,
-		event = "InsertEnter",
-		config = true,
-	},
-
-	{
 		"lukas-reineke/indent-blankline.nvim",
 		main = "ibl",
 		opts = {},

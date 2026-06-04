@@ -122,6 +122,24 @@ return {
 		},
 		opts_extend = { "sources.default" },
 	},
+	{
+		"saghen/blink.pairs",
+		dependencies = "saghen/blink.lib",
+		version = "*",
+		event = "VimEnter",
+		--- @module 'blink.pairs'
+		--- @type blink.pairs.Config
+		opts = {
+			mappings = {
+				enabled = true,
+				cmdline = true,
+				disabled_filetypes = { "TelescopePrompt" },
+			},
+			highlights = {
+				enabled = true,
+			},
+		},
+	},
 
 	{
 		"mason-org/mason-lspconfig.nvim",
