@@ -127,6 +127,9 @@ return {
 		dependencies = "saghen/blink.lib",
 		version = "*",
 		event = "VimEnter",
+		build = function()
+			require("blink.pairs").build():pwait(60000)
+		end,
 		--- @module 'blink.pairs'
 		--- @type blink.pairs.Config
 		opts = {
