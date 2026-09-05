@@ -66,8 +66,13 @@ return {
 	},
 	{
 		"Saghen/blink.cmp",
-		dependencies = { "rafamadriz/friendly-snippets" },
-		version = "1.*",
+		dependencies = {
+			"rafamadriz/friendly-snippets",
+			"saghen/blink.lib",
+		},
+		build = function()
+			require("blink.cmp").build():pwait()
+		end,
 		---@module 'blink.cmp'
 		---@type blink.cmp.Config
 		opts = {
@@ -126,22 +131,9 @@ return {
 		"saghen/blink.pairs",
 		dependencies = "saghen/blink.lib",
 		version = "*",
-		event = "VimEnter",
 		build = function()
-			require("blink.pairs").build():pwait(60000)
+			require("blink.pairs").download():pwait(60000)
 		end,
-		--- @module 'blink.pairs'
-		--- @type blink.pairs.Config
-		opts = {
-			mappings = {
-				enabled = true,
-				cmdline = true,
-				disabled_filetypes = { "TelescopePrompt" },
-			},
-			highlights = {
-				enabled = true,
-			},
-		},
 	},
 
 	{
