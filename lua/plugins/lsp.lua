@@ -112,7 +112,7 @@ return {
 				},
 				accept = { auto_brackets = { enabled = true } },
 			},
-			fuzzy = { implementation = "prefer_rust_with_warning" },
+			fuzzy = { implementation = "prefer_rust" },
 			cmdline = {
 				keymap = { preset = "inherit" },
 				completion = { menu = { auto_show = true } },
