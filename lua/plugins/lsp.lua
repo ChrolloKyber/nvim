@@ -134,6 +134,16 @@ return {
 		build = function()
 			require("blink.pairs").download():pwait(60000)
 		end,
+		opts = {
+			mappings = {
+				enabled = true,
+				cmdline = true,
+			},
+			highlights = {
+				enabled = true,
+				cmdline = true,
+			},
+		},
 	},
 
 	{
