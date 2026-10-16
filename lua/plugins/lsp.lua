@@ -70,9 +70,8 @@ return {
 			"rafamadriz/friendly-snippets",
 			"saghen/blink.lib",
 		},
-		build = function()
-			require("blink.cmp").build():pwait()
-		end,
+		version = "1.10.2",
+		build = "cargo build --release",
 		---@module 'blink.cmp'
 		---@type blink.cmp.Config
 		opts = {
